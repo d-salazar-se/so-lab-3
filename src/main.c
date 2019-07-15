@@ -44,7 +44,12 @@ int main(int argc, char *argv[])
 	// 	printResultsFile("FSO.txt", waitingTimeFSOUp, waitingTimeFSODown, waitingTimeFSOOrdinary, elevatorsFSO, params->numberOfElevators);
 	// 	printf("[ ! ] Archivos 'Nearest Car.txt' y 'FSO.txt' generados!.\n");
 	// }
-	printElevators(elevatorsNearestCar, params->numberOfElevators);
+	if(params->showResultsFlag){
+		printResultsConsole(elevatorsNearestCar, elevatorsFSO, params->numberOfElevators);
+	}
+	else{
+		printResultsFile("salida.txt", 10.0, 11.1, 12.3, elevatorsNearestCar, params->numberOfElevators);
+	}
 	// Finalmente liberar la memoria utilizada.
 	freeParams(params);
 	freeFile(fileUp);
